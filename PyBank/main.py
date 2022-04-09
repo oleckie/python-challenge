@@ -11,19 +11,37 @@ lowestrev = 0
 
 #create revenue bucket
 revchange = []
+proffitloss = []
 
 #link data
 budgetdata = os.path.join("Resources", "budget_data.csv")
 
+print("Financial Analysis")
+print("------------------")
+
 with open(budgetdata) as csvfile:
     csvreader=csv.reader(csvfile)
-    print(csvreader)
+    next(csvreader, None)    
+    
 
 #total months with heading
     for row in csvreader:
         totalmonths+=1
+    
+
+#total amount of "Profit/Losses" over the entire period
+        totalrev = totalrev + (int(row[1]))
+    
+
+#revenue change
+        monthlychange = int(row[1])-pastrev
+        pastrev = int(row[1])
+        revchange.append(monthlychange)
+        averagechange = round(sum(revchange)/totalmonths)
+
+#greatest increase in rvenue
+        
+    
     print("Total Months:", totalmonths)
-
-
-
-
+    print("Total Revenue:" , totalrev)
+    print("Monthly Change:", averagechange)
