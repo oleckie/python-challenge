@@ -40,8 +40,13 @@ with open(budgetdata) as csvfile:
         averagechange = round(sum(revchange)/totalmonths)
 
 #greatest increase in rvenue
-        
+        if(monthlychange > highestrev):
+            highestmonth = row[0]
+            highestrev = monthlychange
+
     
     print("Total Months:", totalmonths)
     print("Total Revenue:" , totalrev)
     print("Monthly Change:", averagechange)
+    print("Greatest Increase in Revenue", highestmonth, highestrev)
+    
