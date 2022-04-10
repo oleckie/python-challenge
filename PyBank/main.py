@@ -51,7 +51,7 @@ with open(budgetdata) as csvfile:
 
     
     print("Total Months:", totalmonths)
-    print("Total Revenue:" , totalrev)
-    print("Monthly Change:", averagechange)
-    print("Greatest Increase in Revenue", highestmonth, highestrev)
-    print("Greatest Decrease in Revenue", lowestmonth, lowestrev)
+    print(f"Total Revenue: ${totalrev}")
+    print(f"Average Change: ${averagechange}")
+    print(f"Greatest Increase in Revenue: {highestmonth} (${highestrev})")
+    print(f"Greatest Decrease in Revenue: {lowestmonth} (${lowestrev})")
