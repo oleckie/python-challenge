@@ -57,3 +57,13 @@ with open(budgetdata) as csvfile:
     print(f"Average Change: ${averagechange}")
     print(f"Greatest Increase in Revenue: {highestmonth} (${highestrev})")
     print(f"Greatest Decrease in Revenue: {lowestmonth} (${lowestrev})")
+
+#export results to a text file
+resultstxt = os.path.join("Analysis", "Results.txt")
+with open(resultstxt, 'w') as outfile:
+        outfile.write("Financial Analysis\n")
+        outfile.write("-------------------\n")
+        outfile.write(f"Total Revenue: ${totalrev}\n")
+        outfile.write(f"Average Change: ${averagechange}\n")
+        outfile.write(f"Greatest Increase in Revenue: {highestmonth} (${highestrev})\n")
+        outfile.write(f"Greatest Decrease in Revenue: {lowestmonth} (${lowestrev})\n")
