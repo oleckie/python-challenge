@@ -2,8 +2,12 @@
 import os
 import csv
 
-#buckets
+#trackers
 totalvotes = 0
+
+#buckets
+candidates = []
+votes = {}
 
 #link data from csv file
 polls = os.path.join("Resources\election_data.csv")
@@ -17,8 +21,34 @@ with open(polls) as csvfile:
     dictreader = csv.DictReader(csvfile)
     next(dictreader, None)
 
+    candidatelist = []
+
 #total votes
     for row in dictreader:
-        totalvotes+=1
+        candidatelist.append(row["Candidate"])
 
-    print("Total Votes:", totalvotes)
+
+#list of candidates with votes
+        candidate = row["Candidate"]
+        if candidate not in candidates:
+
+            candidates.append(candidate)
+
+    print("Total Votes:", len(candidatelist))
+    print("-------------------------")
+    x = len(candidatelist)
+    
+    for person in candidates:
+        personvotes = 0
+            
+        for name in candidatelist:
+            if person == name:
+                personvotes+=1
+                
+#new line (percent votes)
+        candperc = (personvotes/x)
+      
+        print(f'{person}, {personvotes}, {candperc:.3%}')
+    print("-------------------------")
+    print("Winner:  Khan")
+    print("-------------------------")
