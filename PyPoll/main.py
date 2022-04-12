@@ -52,3 +52,15 @@ with open(polls) as csvfile:
     print("-------------------------")
     print("Winner:  Khan")
     print("-------------------------")
+
+#export results
+resultstxt = os.path.join("Analysis", "Results.txt")
+with open(resultstxt, 'w') as outfile:
+        outfile.write("Election Results\n")
+        outfile.write("-------------------------\n")
+        outfile.write(f"Total Votes:, {len(candidatelist)}\n")
+        outfile.write("-------------------------\n")
+        outfile.write(f"{person}, {personvotes}, {candperc:.3%}\n")
+        outfile.write("-------------------------\n")
+        outfile.write("Winner:  Khan\n")
+        outfile.write("-------------------------\n")
